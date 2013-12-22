@@ -58,6 +58,24 @@
             <target>1.7</target>
           </configuration>
         </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-gpg-plugin</artifactId>
+          <version>1.4</version>
+          <configuration>
+            <homedir>${gnupg.home}</homedir>
+            <passphrase>${gnupg.passphrase}</passphrase>
+          </configuration>
+          <executions>
+            <execution>
+              <id>sign-artifacts</id>
+              <phase>verify</phase>
+              <goals>
+                <goal>sign</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
       </plugins>
     </pluginManagement>
   </build>
@@ -104,5 +122,19 @@
     <developerConnection>scm:git:git@github.com:JavaDojo/${project.artifactId}.git</developerConnection>
     <url>git@github.com:JavaDojo/${project.artifactId}.git</url>
   </scm>
+
+  <profiles>
+    <profile>
+      <id>gnupg</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 
 </project>
