@@ -10,7 +10,7 @@
 
   <groupId>com.github.javadojo</groupId>
   <artifactId>java-dojo-parent-pom</artifactId>
-  <version>1.0</version>
+  <version>1.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>JavaDojo parent pom</name>
